@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+   <head>
+      <style>
+         .input-container {
+            display: flex;
+            flex-direction: column;
+            max-width: 300px;
+         }
+
+         .input-container label {
+            margin-bottom: 5px;
+         }
+      </style>
+   </head>
+   <body>
+      <h2 style="text-align: center;">Wyślij paczkę</h2>
+      <form action="/web/sendpackage" method="POST">
+         <div class="input-container">
+            <label for="odbiorca_email">Wprowadź email odbiorcy:</label>
+            <input type="text" id="odbiorca_email" name="odbiorca_email" required>
+         </div>
+         <div class="input-container">
+            <label for="nadawca_email">Wprowadź email nadawcy:</label>
+            <input type="text" id="nadawca_email" name="nadawca_email" required>
+         </div>
+         <div class="input-container">
+            <label for="paczkomat_id">Wprowadź id paczkomatu:</label>
+            <input type="number" id="paczkomat_id" name="paczkomat_id" required>
+         </div>
+         <div class="input-container">
+            <label for="rozmiar">Wprowadź rozmiar:</label>
+            <input type="text" id="rozmiar" name="rozmiar" required>
+         </div>
+         <div class="input-container">
+            <label for="waga">Wprowadź wagę:</label>
+            <input type="text" id="waga" name="waga" required>
+         </div>
+         <button type="submit">Send</button>
+      </form>
+   </body>
+</html>
