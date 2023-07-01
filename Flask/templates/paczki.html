@@ -1,0 +1,28 @@
+<html>
+    <head>
+    <!--css-->
+        <link rel = "stylesheet" type="text/css" href="/css/main.css" media= "screen, projection">
+
+        {% if title %}
+        <title>{{ title }} - uzytkownik</title>
+        {% endif %}
+    </head>
+    <body>
+
+        <div> BAZA DANYCH</div>
+
+        <table>
+            <tbody>
+                <tr><p><th>Id</th> <th><b>Id odbiorcy</b></th> <th><b>ID nadawcy</b></th> <th><b>ID paczkomatu</b></th> <th><b>czy_paczka_odebrana</b></th></p></tr>
+                {% for package in paczka %}
+                <tr>
+                    <p><th>{{package.id}}</th><td><b>{{package.odbiorca_id}}</b></td><td>{{package.nadawca_id}}</td><td>{{package.paczkomat_id}}</td><td>{{package.czy_paczka_odebrana}}</td></p>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+
+
+    </body>
+</html>
