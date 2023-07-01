@@ -4,6 +4,8 @@
 ![image](https://user-images.githubusercontent.com/128514860/234543971-824c75aa-79b1-4d06-9183-ab170e2a917c.png)
 ![image](https://user-images.githubusercontent.com/128514860/234543890-d20b5a95-9cc4-425b-94f0-7bfe978a6a0b.png)
 ![image](https://user-images.githubusercontent.com/128514860/234544053-ba20aaa0-f4d5-4641-8b86-10f19342300b.png)
+#        schemat bazy danych
+![baza_v4 0](https://github.com/IPZPACZKOMAT/PACZKOMAT/assets/128514860/b665f607-7355-4b6d-a27b-03c88ff0e69d)
 #        schemat elektryczny
 ![image](https://user-images.githubusercontent.com/128514860/234544387-2b08e272-61cd-41f7-835e-cd8c736c6049.png)
 #        przeprowadzone próby działania paczkomatu
