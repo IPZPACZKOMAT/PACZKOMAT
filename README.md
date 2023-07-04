@@ -19,7 +19,8 @@ https://user-images.githubusercontent.com/128514860/234547547-dc83b0fb-9e77-4852
 
 #        Instrukcja obsługi
 1. Zarejestruj się jako użytkownik na https://paczkomat.pythonanywhere.com/webpostuser
-2. Znajdując sięw pobliżu paczkomatu nadaj paczkę na https://paczkomat.pythonanywhere.com/web/sendpackage
+- zarejestrowanych użytkowników możesz zobaczyć na https://paczkomat.pythonanywhere.com/web/users
+3. Znajdując się w pobliżu paczkomatu nadaj paczkę na https://paczkomat.pythonanywhere.com/web/sendpackage
 - pamiętaj, że możesz wysyłać paczki tylko zarejestrowanym użytkownikom
 - jeśli nie pamiętasz e-maila nadawcy możesz otworzyć stronę https://paczkomat.pythonanywhere.com/web/users i sprawdzić, patrząc po imieniu i nazwisku, jego e-mail <br/>
 Lista naszych paczkomatów:<br/>
