@@ -8,7 +8,6 @@ import string
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-import time
 
 app = Flask(__name__)
 app.secret_key = 'development key'
@@ -58,8 +57,7 @@ def send_email(sender_email, sender_password, recipient_email, subject, message)
     except Exception as e:
         print("Wystąpił błąd podczas wysyłania e-maila:", str(e))
 
-def wait_five_seconds():
-    time.sleep(5)
+
 
 class Uzytkownik(db.Model):
 
@@ -251,6 +249,7 @@ def getUserNaszDodaj():
 
 
 
+
 @app.route("/web/sendpackage", methods=["GET", "POST"])
 def getPackageDodaj():
     form = SendPackageForm()
@@ -283,9 +282,7 @@ def getPackageDodaj():
 
         paczkomat.otworz = 1
         db.session.commit()
-        wait_five_seconds()
-        paczkomat.otworz = 0
-        db.session.commit()
+
 
         uzytkownik = Uzytkownik.query.get(odbiorca_id)
         recipient_email = uzytkownik.email
@@ -298,11 +295,10 @@ def getPackageDodaj():
 
 
 
-    package = Paczka.query.all()
-    result = paczka_schema.dump(package)
+
     flash('Wyslano paczke!')
     redirect('/web/sendpackage')
-    return render_template('wpiszdanepaczka.html', title='Wyslij paczke', paczka = result, form=form)
+    return render_template('wpiszdanepaczka.html', title='Wyslij paczke', form=form)
 
 
 @app.route("/web/packages", methods=["GET"])
@@ -320,7 +316,7 @@ def otworz(haslo1):
     if paczka.czy_paczka_odebrana == 0:
         paczkomat.otworz = 1
         db.session.commit()
-        wait_five_seconds()
+
         paczkomat.otworz = 0
         paczkomat.czy_jest_paczka = 0
         paczka.czy_paczka_odebrana = 1
@@ -348,17 +344,29 @@ def otworz():
             return "Paczka już została odebrana"
         paczkomat.otworz = 1
         db.session.commit()
-        wait_five_seconds()
-        paczkomat.otworz = 0
+
+
         paczkomat.czy_jest_paczka = 0
         paczka.czy_paczka_odebrana = 1
         db.session.commit()
-    parcel = Paczkomat.query.all()
-    result = paczkomat_schema.dump(parcel)
-    flash('Otworzono!')
-    redirect('/otworz')
-    return render_template('open.html', title='otworz', paczkomat = result, form=form)
 
+    flash('Otworzono!')
+    #redirect('/zamknij')
+    return render_template('open.html', title='otworz', form=form)
+
+
+@app.route("/zamknij" , methods=["GET", "POST"])
+def zamknij():
+
+    paczkomat = Paczkomat.query.filter_by(id=1).first()
+
+    paczkomat.otworz = 0
+    db.session.commit()
+
+    result=paczkomat.otworz
+
+
+    return jsonify(result)
 
 
 
